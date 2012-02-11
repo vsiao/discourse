@@ -52,7 +52,7 @@ body {
   color:#666;
   background-color:#fff;
 }
-#page-header #tabs li a.close-tab {
+#page-header #tabs li a .close-tab {
   display:block;
   position:absolute;
   top:7px;
@@ -67,7 +67,7 @@ body {
   overflow:hidden;
   background-position:-35px 0;
 }
-#page-header #tabs li a.close-tab:hover {
+#page-header #tabs li a .close-tab:hover {
   background-position:-35px -15px;
 }
 #page-header #logout-link {
