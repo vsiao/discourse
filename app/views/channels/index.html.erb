@@ -1,27 +1,30 @@
 <div class="container">
-<h1>Listing channels</h1>
-
-<table>
+<div id="welcome-msg">
+<h2>Welcome to discourse!</h2>
+<p>Join a channel below, or create a 
+<%= link_to 'new channel', channels_path, :method => :post %> 
+to start chatting. You are currently browsing the
+Carnegie Mellon University network. </p>
+</div>
+<table id="channels-list">
   <tr>
     <th>Name</th>
     <th>School</th>
     <th></th>
-    <th></th>
-    <th></th>
+    <!--<th></th>
+    <th></th>-->
   </tr>
-
 <% @channels.each do |channel| %>
   <tr>
     <td><%= channel.name %></td>
-    <td><%= channel.school_id %></td>
-    <td><%= link_to 'Show', channel %></td>
-    <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
-    <td><%= link_to 'Destroy', channel, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= channel.school.name %></td>
+    <td><%= link_to 'Join', channel %></td>
+    <!--<td><%= link_to 'Edit', edit_channel_path(channel) %></td>-->
+    <!--<td><%= link_to 'Destroy', channel, :confirm => 'Are you sure?', :method => :delete %></td>-->
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Channel', new_channel_path %>
 </div>
