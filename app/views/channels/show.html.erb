@@ -44,7 +44,7 @@ $(".close-tab").live('click', function(event) {
 
 $(".tab").live('click', function(event) {
   $(".tab").removeClass("active");
-  $(this).addClass("active");
+  $(this).removeClass('alert').addClass("active");
   event.preventDefault();
   $(".chat-channel").fadeOut(250);
   $("#" + $(this).attr('channel')).fadeIn(250);

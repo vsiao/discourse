@@ -2,5 +2,9 @@
   var msg = $("<%= escape_javascript render(@message) %>").hide().appendTo('#chat-<%= @chan_id %>').fadeIn(200);
   msg.find('.new-flash').delay(2000).animate({ opacity:0 }, 1600);
   $('html, body').animate({scrollTop: $(document).height()}, 300);
+  if (!$('#tab-<%= @chan_name %>').hasClass('active'))
+  {
+    $('#tab-<%= @chan_name %>').addClass('alert');
+  }
 <% end %>
 $("#new_message_<%= @chan_id %>")[0].reset();
