@@ -71,19 +71,19 @@ a {
  * ChatBox Styles
  ***********************************
  */
-#chat-sidebar {
+.chat-sidebar {
   position:fixed;
   width:240px;
 }
-#member-list li {
+.member-list li {
   margin-top:5px;
 }
-#member-list img {
+.member-list img {
   width:30px; height:30px;
   vertical-align:middle;
   margin-right:10px;
 }
-#chat-window {
+.chat-window {
   top:0;
   position:absolute; right:0;
   width:720px;
@@ -92,48 +92,48 @@ a {
   border:1px solid #ddd;
   border-width:0 1px;
 }
-ul#chat {
+ul.chat {
   list-style: none;
   width: 100%;
   padding:0 0 82px;
 }
-ul#chat li {
+ul.chat li {
   position:relative;
   margin:8px 10px 8px;
   padding:10px 0 0 65px;
   min-height:50px;
   border-top:1px solid #ddd;
 }
-ul#chat img {
+ul.chat img {
   position:absolute;
   left:5px;
 }
-ul#chat li .name {
+ul.chat li .name {
   position:relative;
   top:-3px;
   font-size:11px;
   color:#1874CD;
 }
-ul#chat li p {
+ul.chat li p {
   /* message content */
 }
-ul#chat li .created_at {
+ul.chat li .created_at {
   position:absolute;
   top:5px; right:10px;
   color: #777;
   font-size: 11px;
 }
-#chat-input {
+.chat-input {
   position:fixed; bottom:0;
   width:720px;
   height:80px;
   background-color:#ddd;
   border-top:1px solid #bbb;
 }
-#chat-input form {
+.chat-input form {
   position:relative;
 }
-input#message_content {
+input.message_content {
   display:block;
   width:684px;
   padding:5px 8px;
