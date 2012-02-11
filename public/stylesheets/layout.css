@@ -16,10 +16,11 @@ body {
   height:40px;
 }
 #page-header h1 {
-  float:right;
+  position:absolute;
+  left:25px;
   width:140px;
   height:0;
-  margin:10px 50px;
+  margin:10px 20px;
   padding-top:20px;
   overflow:hidden;
   background-image:url('/images/discourse-small.png');
@@ -28,7 +29,7 @@ body {
   position:absolute;
   left:238px; top:5px;
   height:35px;
-  width:720px;
+  width:500px;
 }
 #page-header #tabs li {
   position:relative;
@@ -49,7 +50,7 @@ body {
 #page-header #tabs li a:hover {
   background-color:#1874CD;
 }
-#page-header #tabs li a.active {
+#page-header #tabs li.active a {
   color:#666;
   background-color:#fff;
   border-top-color:#1874cd;
@@ -73,21 +74,33 @@ body {
   background-position:-35px -15px;
 }
 #page-header #lobby-link {
-
+  display:block;
+  position:absolute;
+  left:0;
+  top:12px;
+  width:15px;
+  height:0;
+  padding-top:15px;
+  overflow:hidden;
+  background-image:url('/images/header-options.png');
+  background-position:-65px 0;
+}
+#page-header #lobby-link:hover {
+  background-position:-65px -15px;
 }
 #page-header #logout-link {
   display:block;
   position:absolute;
   right:10px;
-  top:10px;
-  width:30px;
-  height:0;
-  padding-top:20px;
-  overflow:hidden;
-  background-image:url('/images/header-options.png');
+  top:12px;
+  height:20px;
+  font-weight:700;
+  font-family:Quicksand,Arial,Helvetica;
+  font-size:14px;
+  color:#000;
 }
 #page-header #logout-link:hover {
-  background-position:0 -20px;
+  color:#1874cd;
 }
 #page-content {
   position:relative;

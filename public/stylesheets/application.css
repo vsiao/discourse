@@ -91,6 +91,9 @@ a {
   position:fixed;
   width:240px;
 }
+.chat-channel {
+  height:100%;
+}
 .chat-channel h2 {
   font-family:Quicksand,Arial,Helvetica;
   font-size:18px;
@@ -100,6 +103,23 @@ a {
 .chat-channel .school {
   font-weight:400;
   font-size:12px;
+  font-style:italic;
+}
+.chat-channel .description {
+  margin-top:5px;
+  font-size:12px;
+  color:#666;
+}
+.chat-members {
+  margin-top:20px;
+  width:200px;
+  padding:10px;
+  border:1px solid #ccc;
+  background-color:#f3f3f3;
+}
+.members-header {
+  color:#1874cd;
+  font-weight:700;
 }
 .member-list li {
   margin-top:5px;
