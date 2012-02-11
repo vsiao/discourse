@@ -71,6 +71,9 @@ a {
  * Channels Index
  ***********************************
  */
+#channels-index {
+  position:absolute;
+}
 #channels-list {
   width:720px;
   float:right;
