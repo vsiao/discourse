@@ -102,9 +102,12 @@ a {
   border-width:0 1px;
 }
 ul.chat {
-  list-style: none;
-  width: 100%;
-  padding:0 0 90px;
+  list-style:none;
+  width:100%;
+  padding:10px 0 90px;
+}
+ul.chat li:first-child {
+  border-top:1px solid #ddd;
 }
 ul.chat li {
   position:relative;
@@ -113,7 +116,6 @@ ul.chat li {
   min-height:50px;
   border-bottom:1px solid #ddd;
 }
-
 ul.chat li .new-flash {
   position:absolute;
   left:0; top:0;
@@ -135,7 +137,6 @@ ul.chat li .name {
 ul.chat li p {
   /* message content */
   position:relative;
-  z-index:300;
 }
 ul.chat li .created_at {
   position:absolute;
