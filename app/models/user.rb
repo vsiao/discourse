@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :authentication
   has_many :schools
+  has_many :channels
   
   ############################# AUTHENTICATION ####################################
 

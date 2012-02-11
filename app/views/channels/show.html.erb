@@ -4,6 +4,9 @@ $(function() {
   faye.subscribe("/channels/<%= @channel.name %>", function(data) {
     eval(data);
   });
+  $.ajax({url: '<%= url_for :action => 'action_name', :id => @model.id %>',
+        data: 'selected=' + this.value,
+        dataType: 'json'})
 });
 </script>
 
