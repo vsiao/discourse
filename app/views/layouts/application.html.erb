@@ -18,12 +18,13 @@
       <% end %>-->
     </div>
     <div id="page-header">
+    <div class="container">
       <h1>discourse</h1>
       <%= link_to "logout", "/logout", :method => :delete, :id => "logout-link" %>
       <%= render :partial => "partials/tabs" %>
     </div>
+    </div>
     <div id="page-content">
-      <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
     </div>
   </body>

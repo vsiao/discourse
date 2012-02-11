@@ -22,11 +22,11 @@ a {
   height: 0;
   overflow: hidden;
 }
-#container {
-  width: 98%;
+.container {
+  position:relative;
+  width: 960px;
+  height:100%;
   margin: 0 auto;
-  background-color: #FFF;
-  border: solid 1px #ddd;
 }
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
@@ -74,14 +74,16 @@ a {
 #chat-window {
   top:0;
   position:absolute; right:0;
-  width:70%;
+  width:720px;
   height:100%;
+  background-color:#fff;
+  border:1px solid #ddd;
+  border-width:0 1px;
 }
 ul#chat {
   list-style: none;
   width: 100%;
-  padding:40px 0 80px;
-  background-color:#fff;
+  padding:0 0 80px;
 }
 ul#chat li {
   margin: 2px 5px;
@@ -96,11 +98,17 @@ ul#chat li .created_at {
 }
 #chat-input {
   position:fixed; bottom:0;
-  width:100%;
+  width:720px;
   height:80px;
-  background-color:#eee;
-  border-top:1px solid #ddd;
+  background-color:#ddd;
+  border-top:1px solid #bbb;
+}
+#chat-input form {
+  position:relative;
 }
 input#message_content {
-  width: 240px;
+  display:block;
+  width:700px;
+  margin:10px auto;
+  border:1px solid #ccc;
 }

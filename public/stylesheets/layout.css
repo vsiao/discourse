@@ -1,7 +1,6 @@
 body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
-  background-color:#f3f3f3;
 }
 #flash {
   display:none;
@@ -13,6 +12,9 @@ body {
   z-index:99;
   background-color:#eee;
 }
+#page-header .container {
+  height:40px;
+}
 #page-header h1 {
   float:right;
   width:140px;
@@ -21,6 +23,21 @@ body {
   padding-top:20px;
   overflow:hidden;
   background-image:url('/images/discourse-small.png');
+}
+#page-header #tabs {
+  position:absolute;
+  left:0; bottom:0;
+  height:30px;
+}
+#page-header #tabs li {
+  display:inline-block;
+}
+#page-header #tabs li a {
+  display:block;
+  padding:5px 10px;
+  border:1px solid #ddd;
+  border-bottom:none;
+  height:19px;
 }
 #page-header #logout-link {
   display:block;

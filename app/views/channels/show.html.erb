@@ -6,9 +6,8 @@ $(function() {
   });
 });
 </script>
-
+<div class="container">
 <p id="notice"><%= notice %></p>
-<% title "Chat" %>
 
 <p>
   <b>Name:</b>
@@ -29,9 +28,9 @@ $(function() {
   <div id="chat-input">
   <%= form_for Message.new, :remote => true do |f| %>
     <%= f.hidden_field :channel_name, :value => @channel.name %>
-    <%= f.text_field :content %>
-    <%= f.submit "Send" %>
+    <%= f.text_field :content, :autocomplete => "off" %>
+    <!--<%= f.submit "Send" %>-->
   <% end %>
   </div>
 </div>
-
+</div>
