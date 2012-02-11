@@ -1,5 +1,6 @@
 <% broadcast "/channels/" + @channel_name do %>
-  $("<%= escape_javascript render(@message) %>").hide().appendTo('#chat').fadeIn(200);
+  var msg = $("<%= escape_javascript render(@message) %>").hide().appendTo('#chat').fadeIn(200);
+  msg.find('.new-flash').delay(2000).animate({ opacity:0 }, 1600);
   $('html, body').animate({scrollTop: $(document).height()}, 300);
 <% end %>
 $("#new_message")[0].reset();
