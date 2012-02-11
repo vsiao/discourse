@@ -1,4 +1,5 @@
 <li>
+  <img src="http://graph.facebook.com/<%= current_user.uid %>/picture" />
   <span class="name"><%= current_user.name %></span>
   <span class="created_at"><%= message.created_at.strftime("%H:%M") %></span>
   <p><%= message.content %></p>

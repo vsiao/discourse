@@ -7,19 +7,23 @@ $(function() {
 });
 </script>
 <div class="container">
-<p id="notice"><%= notice %></p>
+<div id="chat-info">
 
-<p>
-  <b>Name:</b>
-  <%= @channel.name %>
-</p>
+  <p id="notice"><%= notice %></p>
+  <p>
+    <b>Name:</b>
+    <%= @channel.name %>
+  </p>
+  <p>
+    <b>School:</b>
+    <%= @channel.school_id %>
+  </p>
+  <%= link_to 'Edit', edit_channel_path(@channel) %> |
+  <%= link_to 'Back', channels_path %>
 
-<p>
-  <b>School:</b>
-  <%= @channel.school_id %>
-</p>
-<%= link_to 'Edit', edit_channel_path(@channel) %> |
-<%= link_to 'Back', channels_path %>
+</div>
+<div id="chat-members">
+</div>
 
 <div id="chat-window">
   <ul id="chat">
