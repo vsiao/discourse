@@ -2,15 +2,23 @@
 
 var initialChannel = "<%= current_user.channels.first ? current_user.channels.first.name : "" %>";
 
-userActive = function() { $.ajax({
+$(function() {
+  var faye = new Faye.Client('http://128.237.116.88:9292/faye');
+  <% current_user.channels.each do |channel| %>
+    faye.subscribe("/channels/<%= channel.id %>", function(data) {
+      eval(data);
+    });
+  
+  
+  setInterval(function() { $.ajax({
     type: 'POST',
     url: '/channels-user-active',
     dataType: "json",
-    data: "channel_id=<%= @channel.id %>",
+    data: "channel_id=<%= channel.id %>",
     success: function(response) {
-      $("#member-list").empty();
+      $("#<%= channel.name %> .member-list").empty();
       $.each(response.users, function(index, value) {
-        $("#member-list").append(
+        $("#<%= channel.name %> .member-list").append(
           '<li><img src="http://graph.facebook.com/'
           +value.user.uid+
           '/picture" />'
@@ -18,18 +26,10 @@ userActive = function() { $.ajax({
         );
       });
     }
-  });
-};
-
-$(function() {
-  var faye = new Faye.Client('http://128.237.116.88:9292/faye');
-  <% current_user.channels.each do |channel| %>
-    faye.subscribe("/channels/<%= channel.id %>", function(data) {
-      eval(data);
-    });
+  });}, 1000);
   <% end %>
   
-  setInterval(userActive, 1000);
+  
   $(".chat-channel").hide();
   $("#" + initialChannel).show();
 });
