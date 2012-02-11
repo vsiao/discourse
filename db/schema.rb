@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20120211160242) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.integer  "uid"
+    t.string   "uid"
     t.integer  "school_id"
     t.integer  "authentication_id"
     t.integer  "channel_id"
