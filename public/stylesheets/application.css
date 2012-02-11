@@ -116,6 +116,7 @@ a {
   padding:10px;
   border:1px solid #ccc;
   background-color:#f3f3f3;
+  border-radius:3px;
 }
 .members-header {
   color:#1874cd;
@@ -197,6 +198,7 @@ input.message_content {
   padding:5px 8px;
   margin:10px auto;
   border:1px solid #ccc;
+  border-radius:3px;
 }
 input.message_content:focus {
   border-color:#1874cd;

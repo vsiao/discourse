@@ -40,15 +40,17 @@ body {
   display:block;
   padding:10px 25px 0 10px;
   height:23px;
-  color:#ddd;
-  background-color:#666;
+  color:#aaa;
+  background-color:#ddd;
   border:1px solid #ddd;
   border-top:2px solid #aaa;
   border-bottom:none;
-  border-radius:2px 2px 0 0;
+  border-radius:3px 3px 0 0;
 }
 #page-header #tabs li a:hover {
   background-color:#1874CD;
+  color:#fff;
+  border-top-color:#666;
 }
 #page-header #tabs li.active a {
   color:#666;
@@ -104,7 +106,7 @@ body {
 }
 #page-content {
   position:relative;
-  padding-top:41px;
+  padding-top:40px;
 }
 #welcome-msg h2 {
   font-family:Quicksand,Arial,Helvetica,sans-serif;

@@ -8,4 +8,4 @@
 cmu = School.create(:name => "Carnegie Mellon University")
 c1 = Channel.create(:name => "15-251", :school_id => cmu.id)
 c2 = Channel.create(:name => "random", :school_id => cmu.id)
-c1.update_attribute(:description, "puzzle hunt!")
+c1.update_attribute(:description, "omg so, there's this puzzle hunt that adam blank made and it's really hard, QQ :(")
