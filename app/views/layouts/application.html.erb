@@ -13,15 +13,16 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="page-header">
-      <h1>discourse</h1>
-      <%= link_to "logout", "logout", :method => :delete, :id => "logout-link" %>
-      <%= render :partial => "partials/tabs" %>
-    </div>
-    <div id="container">
-      <!--<% flash.each do |name, msg| %>
+    <div id="flash"><!--<% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>-->
+    </div>
+    <div id="page-header">
+      <h1>discourse</h1>
+      <%= link_to "logout", "/logout", :method => :delete, :id => "logout-link" %>
+      <%= render :partial => "partials/tabs" %>
+    </div>
+    <div id="page-content">
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
     </div>

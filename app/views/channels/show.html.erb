@@ -8,12 +8,7 @@ $(function() {
 </script>
 
 <p id="notice"><%= notice %></p>
-
-<% if user_signed_in? %>
-<p>
-Your Name: <%= current_user.name %>
-</p>
-<% end %>
+<% title "Chat" %>
 
 <p>
   <b>Name:</b>
@@ -24,19 +19,19 @@ Your Name: <%= current_user.name %>
   <b>School:</b>
   <%= @channel.school_id %>
 </p>
-
-<% title "Chat" %>
-
-<ul id="chat">
-
-</ul>
-
-<%= form_for Message.new, :remote => true do |f| %>
-  <%= f.hidden_field :channel_name, :value => @channel.name %>
-  <%= f.text_field :content %>
-  <%= f.submit "Send" %>
-<% end %>
-
-
 <%= link_to 'Edit', edit_channel_path(@channel) %> |
 <%= link_to 'Back', channels_path %>
+
+<div id="chat-window">
+  <ul id="chat">
+
+  </ul>
+  <div id="chat-input">
+  <%= form_for Message.new, :remote => true do |f| %>
+    <%= f.hidden_field :channel_name, :value => @channel.name %>
+    <%= f.text_field :content %>
+    <%= f.submit "Send" %>
+  <% end %>
+  </div>
+</div>
+

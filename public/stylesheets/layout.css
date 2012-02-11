@@ -3,6 +3,9 @@ body {
   font-size: 14px;
   background-color:#f3f3f3;
 }
+#flash {
+  display:none;
+}
 #page-header {
   height:40px;
 }
@@ -25,4 +28,7 @@ body {
   padding-top:30px;
   overflow:hidden;
   background-image:url('/images/header-options.png');*/
+}
+#page-content {
+  position:relative;
 }
