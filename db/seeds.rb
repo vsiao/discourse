@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+cmu = School.create(:name => "Carnegie Mellon University")
+c1 = Channel.create(:name => "15-251", :school_id => cmu.id)
+c2 = Channel.create(:name => "random", :school_id => cmu.id)
