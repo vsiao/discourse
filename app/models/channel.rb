@@ -11,7 +11,7 @@ class Channel < ActiveRecord::Base
   def check_active_users
     self.users.each do |u|
       c = Chat.find_by_user_id_and_channel_id(u.id, self.id)
-      if (Time.now - c.updated_at) > 3
+      if (Time.now - c.updated_at) > 6
         self.users.delete(u)
       end
     end
