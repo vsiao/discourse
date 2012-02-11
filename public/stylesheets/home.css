@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quicksand-Regular'), url('/quicksand400.woff') format('woff');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Quicksand-Bold'), url('/quicksand700.woff') format('woff');
+}
+body {
+  font-family:Quicksand,sans-serif;
+  font-weight:400;
+}
+#main {
+  width:600px;
+  margin:0 auto;
+  text-align:center;
+  font-size:16px;
+}
+h1 {
+  position:relative;
+  left:0px;
+  width:280px;
+  height:0;
+  margin:150px auto 0;
+  padding-top:40px;
+  background-image:url('/images/discourse.png');
+  overflow:hidden;
+}
+#tagline {
+  display:block;
+  margin-top:10px;
+}
+#fb-login {
+  display:block;
+  width:280px;
+  height:0;
+  margin:40px auto;
+  padding-top:40px;
+  background-image:url('/images/fb.png');
+  overflow:hidden;
+}
+#fb-login:hover {
+  background-position:0 -40px;
+}
+
