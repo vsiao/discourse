@@ -1,6 +1,6 @@
       <ul id="tabs">
-        <li><a href="/channels/1" class="active">tartanhacks
-            <span class="close-tab">close</span></a></li>
-        <li><a href="/channels/1">tartanhacks
-            <span class="close-tab">close</span></a></li>
+        <% current_user.channels.each do |channel| %>
+          <li channel="<%= channel.name %>" class="tab active"><a href="/channels/<%= channel.id %>" class="active"><%= channel.name %>
+          <span class="close-tab">close</span></a></li>
+        <% end %>
       </ul>

@@ -5,6 +5,6 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create!(params[:message])
-    @channel_name = params[:message][:channel_name]
+    @chan_id = params[:message][:chan_id]
   end
 end
