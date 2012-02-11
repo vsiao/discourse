@@ -83,6 +83,9 @@ a {
 #channels-list tr {
   border-bottom:1px solid #ddd;
 }
+#channels-list tr.even {
+  background-color:#f3f3f3;
+}
 #channels-list td, #channels-list th {
   padding:6px 9px;
 }
