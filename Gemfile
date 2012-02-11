@@ -6,3 +6,6 @@ gem 'faye'
 gem 'nifty-generators'
 gem 'jquery-rails'
 gem 'sqlite3-ruby'
+# Authentication Gems
+gem 'fb_graph'
+gem 'omniauth', '~> 0.3.2'
