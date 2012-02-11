@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   belongs_to :authentication
   has_many :schools
-  has_many :channels
+  has_many :chats
+  has_many :channels, :through => :chats
   
   ############################# AUTHENTICATION ####################################
 

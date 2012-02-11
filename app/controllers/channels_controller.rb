@@ -79,5 +79,20 @@ class ChannelsController < ApplicationController
       format.html { redirect_to(channels_url) }
       format.xml  { head :ok }
     end
+  end  
+  
+  def user_active
+    channel_id = params[:channel_id]
+    c = Chat.find_by_user_id_and_channel_id(current_user.id, channel_id)
+    if c
+      c.touch
+    else
+      Chat.create(:user_id => current_user.id, :channel_id => channel_id)
+    end
+    channel = Channel.find(channel_id)
+    channel.check_active_users
+    
+    render :json => { :users => channel.users }
   end
+
 end

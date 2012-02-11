@@ -8,5 +8,7 @@ Chatter::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
   delete '/logout' => 'authentications#destroy'
   #######################################################
+  
+  match "/channels-user-active" => "channels#user_active"
 
 end

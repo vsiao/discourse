@@ -1,9 +1,28 @@
 <script>
+
+userActive = function() { $.ajax({
+    type: 'POST',
+    url: '/channels-user-active',
+    dataType: "json",
+    data: "channel_id=<%= @channel.id %>",
+    success: function(response) {
+      $("#chat-members").empty();
+      $.each(response.users, function(index, value) {
+        $("#chat-members").append("<div>" + value.user.name + "</div>");
+      });
+    }
+  });
+};
+
 $(function() {
   var faye = new Faye.Client('http://128.237.116.88:9292/faye');
   faye.subscribe("/channels/<%= @channel.name %>", function(data) {
     eval(data);
   });
+  
+  setInterval(userActive, 1000);
+
+  
 });
 </script>
 <div class="container">
@@ -22,8 +41,7 @@ $(function() {
   <%= link_to 'Back', channels_path %>
 
 </div>
-<div id="chat-members">
-</div>
+
 
 <div id="chat-window">
   <ul id="chat">
@@ -36,5 +54,11 @@ $(function() {
     <!--<%= f.submit "Send" %>-->
   <% end %>
   </div>
+</div>
+<br /><br /><br /><br />
+Members:
+<br />
+<div id="chat-members">
+
 </div>
 </div>
