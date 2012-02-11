@@ -204,9 +204,6 @@ ul.chat li .created_at {
 .chat-input form {
   position:relative;
 }
-.active {
-  background-color:red;
-}
 .embedded {
   max-width: 200px;
   max-height: 200px;

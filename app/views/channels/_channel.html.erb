@@ -18,7 +18,7 @@
       <div class="chat-input">
       <%= form_for Message.new, :html => { :id => 'new_message_' + channel.id.to_s },  :remote => true do |f| %>
         <%= f.hidden_field :chan_id, :id => 'message_channel_id_' + channel.id.to_s, :value => channel.id %>
-        <%= f.text_field :content, :id => 'message_content_' + channel.id.to_s, :class => 'message_content', :autocomplete => "off" %>
+        <%= f.text_field :content, :id => 'message_content_' + channel.id.to_s, :class => 'message_content', :placeholder => "Send a Message", :autocomplete => "off" %>
         <!--<%= f.submit "Send" %>-->
       <% end %>
       </div>
