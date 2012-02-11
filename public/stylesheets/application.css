@@ -86,7 +86,7 @@ ul#chat {
   padding:0 0 80px;
 }
 ul#chat li {
-  padding:8px;
+  padding:8px 12px;
 }
 ul#chat li .name {
   position:relative;
@@ -116,7 +116,8 @@ ul#chat li .created_at {
 }
 input#message_content {
   display:block;
-  width:700px;
+  width:684px;
+  padding:5px 8px;
   margin:10px auto;
   border:1px solid #ccc;
 }
