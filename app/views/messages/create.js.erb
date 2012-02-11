@@ -1,5 +1,5 @@
 <% broadcast "/channels/" + @channel_name do %>
-  $("#chat").append("<%= escape_javascript render(@message) %>");
-  window.scrollTo(0, document.body.scrollHeight);
+  $("<%= escape_javascript render(@message) %>").hide().appendTo('#chat').fadeIn(200);
+  $("html").animate({ scrollTop: $(document).height() }, 200);
 <% end %>
 $("#new_message")[0].reset();

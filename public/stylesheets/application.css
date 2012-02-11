@@ -75,7 +75,7 @@ a {
   top:0;
   position:absolute; right:0;
   width:720px;
-  height:100%;
+  min-height:100%;
   background-color:#fff;
   border:1px solid #ddd;
   border-width:0 1px;
@@ -86,8 +86,16 @@ ul#chat {
   padding:0 0 80px;
 }
 ul#chat li {
-  margin: 2px 5px;
-  padding: 0;
+  padding:8px;
+}
+ul#chat li .name {
+  position:relative;
+  top:-3px;
+  font-size:10px;
+  color:#1fbbbd;
+}
+ul#chat li p {
+  /* message content */
 }
 ul#chat li .created_at {
   float: right;
