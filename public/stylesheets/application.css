@@ -172,7 +172,7 @@ ul.chat img {
   position:absolute;
   left:10px;
 }
-ul.chat img.latex {
+ul.chat img.latex, ul.chat img.embedded {
   position:relative;
   display:block;
   margin:5px 0;
