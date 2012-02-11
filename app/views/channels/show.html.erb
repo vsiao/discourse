@@ -21,9 +21,7 @@ $(function() {
       data: "channel_id=<%= channel.id %>",
       success: function(response) {
         $("#<%= channel.name %> .member-list").empty();
-        console.log(response.users);
         var users = response.users.sort(sortName);
-        console.log(users);
         $.each(response.users, function(index, value) {
           $("#<%= channel.name %> .member-list").append(
             '<li><img src="http://graph.facebook.com/'
