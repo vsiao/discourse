@@ -32,9 +32,12 @@ $(function() {
   
   $(".chat-channel").hide();
   $("#" + initialChannel).show();
+  $("#tab-" + initialChannel).addClass('active');
 });
 
 $(".tab").click(function(event) {
+  $(".tab").removeClass("active");
+  $(this).addClass("active");
   event.preventDefault();
   $(".chat-channel").hide();
   $("#" + $(this).attr('channel')).show();
