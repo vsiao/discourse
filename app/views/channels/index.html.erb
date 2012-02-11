@@ -9,7 +9,6 @@ Carnegie Mellon University network. </p>
 <table id="channels-list">
   <tr>
     <th>Name</th>
-    <th>School</th>
     <th>Description</th>
     <th></th>
     <!--<th></th>
@@ -18,7 +17,6 @@ Carnegie Mellon University network. </p>
 <% @channels.each do |channel| %>
   <tr>
     <td><%= channel.name %></td>
-    <td><%= channel.school.name %></td>
     <td><%= channel.description %></td>
     <td><%= link_to 'Join', channel %></td>
     <!--<td><%= link_to 'Edit', edit_channel_path(channel) %></td>-->
