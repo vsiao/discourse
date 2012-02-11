@@ -1,0 +1,28 @@
+body {
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+  background-color:#f3f3f3;
+}
+#page-header {
+  height:40px;
+}
+#page-header h1 {
+  float:right;
+  width:140px;
+  height:0;
+  margin:10px 50px;
+  padding-top:20px;
+  overflow:hidden;
+  background-image:url('/images/discourse-small.png');
+}
+#page-header #logout-link {
+  display:block;
+  position:absolute;
+  right:10px;
+  top:0;
+  /*width:40px;
+  height:0;
+  padding-top:30px;
+  overflow:hidden;
+  background-image:url('/images/header-options.png');*/
+}
