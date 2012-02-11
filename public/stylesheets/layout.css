@@ -28,7 +28,7 @@ body {
   position:absolute;
   left:238px; top:5px;
   height:35px;
-  width:720px;
+  width:500px;
 }
 #page-header #tabs li {
   position:relative;
@@ -49,7 +49,7 @@ body {
 #page-header #tabs li a:hover {
   background-color:#1874CD;
 }
-#page-header #tabs li a.active {
+#page-header #tabs li.active a {
   color:#666;
   background-color:#fff;
   border-top-color:#1874cd;

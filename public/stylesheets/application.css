@@ -91,6 +91,9 @@ a {
   position:fixed;
   width:240px;
 }
+.chat-channel {
+  height:100%;
+}
 .chat-channel h2 {
   font-family:Quicksand,Arial,Helvetica;
   font-size:18px;
