@@ -72,16 +72,9 @@ a {
  ***********************************
  */
 #channels-list {
-  width:720px;
-  float:right;
+  width:100%;
   text-align:center;
-  margin-top:25px;
-}
-#channels-list tr {
-  border-bottom:1px solid #ddd;
-}
-#channels-list td, #channels-list th {
-  padding:6px 9px;
+  margin-top:20px;
 }
 /***********************************
  * ChatBox Styles
@@ -90,16 +83,6 @@ a {
 .chat-sidebar {
   position:fixed;
   width:240px;
-}
-.chat-channel h2 {
-  font-family:Quicksand,Arial,Helvetica;
-  font-size:18px;
-  font-weight:700;
-  margin-top:10px;
-}
-.chat-channel .school {
-  font-weight:400;
-  font-size:12px;
 }
 .member-list li {
   margin-top:5px;
@@ -118,13 +101,20 @@ a {
   border:1px solid #ddd;
   border-width:0 1px;
 }
-ul.chat {
+<<<<<<< HEAD
+ul#chat {
   list-style:none;
   width:100%;
   padding:10px 0 90px;
 }
-ul.chat li:first-child {
+ul#chat li:first-child {
   border-top:1px solid #ddd;
+=======
+ul.chat {
+  list-style: none;
+  width: 100%;
+  padding:0 0 90px;
+>>>>>>> f1ebcf17977391d58c25996804ae8bda5f4038da
 }
 ul.chat li {
   position:relative;
@@ -133,6 +123,7 @@ ul.chat li {
   min-height:50px;
   border-bottom:1px solid #ddd;
 }
+
 ul.chat li .new-flash {
   position:absolute;
   left:0; top:0;
@@ -170,9 +161,6 @@ ul.chat li .created_at {
 }
 .chat-input form {
   position:relative;
-}
-.active {
-  background-color:red;
 }
 input.message_content {
   display:block;
