@@ -57,6 +57,9 @@ body {
   background-color:#fff;
   border-top-color:#1874cd;
 }
+#page-header #tabs li.alert a.tab-link {
+  border-top:#fbb03b;
+}
 #page-header #tabs li .close-tab {
   display:block;
   position:absolute;

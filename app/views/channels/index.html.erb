@@ -30,7 +30,7 @@ $(function() {
       <th></th>-->
     </tr>
   <% @channels.each do |channel| %>
-    <tr>
+    <tr class="<%= cycle('even', 'odd') %>">
       <td><%= channel.name %></td>
       <td><%= channel.description %></td>
       <td><%= link_to 'Join', "/chats/"+channel.id.to_s, :method => :put %></td>
