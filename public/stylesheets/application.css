@@ -68,6 +68,15 @@ a {
   margin: 0;
 }
 /***********************************
+ * Channels Index
+ ***********************************
+ */
+#channels-list {
+  width:100%;
+  text-align:center;
+  margin-top:20px;
+}
+/***********************************
  * ChatBox Styles
  ***********************************
  */
@@ -95,14 +104,14 @@ a {
 ul.chat {
   list-style: none;
   width: 100%;
-  padding:0 0 82px;
+  padding:3px 0 82px;
 }
 ul.chat li {
   position:relative;
   margin:8px 10px 8px;
-  padding:10px 0 0 65px;
+  padding:2px 0 10px 65px;
   min-height:50px;
-  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
 }
 ul.chat img {
   position:absolute;
@@ -119,7 +128,7 @@ ul.chat li p {
 }
 ul.chat li .created_at {
   position:absolute;
-  top:5px; right:10px;
+  top:2px; right:10px;
   color: #777;
   font-size: 11px;
 }
