@@ -92,7 +92,10 @@ a {
   width:240px;
 }
 .chat-channel {
+  width:100%;
   height:100%;
+  right:0;
+  position:absolute;
 }
 .chat-channel h2 {
   font-family:Quicksand,Arial,Helvetica;

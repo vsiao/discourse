@@ -1,6 +1,7 @@
       <ul id="tabs">
-        <% current_user.channels.each do |channel| %>
-          <li id="tab-<%= channel.name %>" channel="<%= channel.name %>" class="tab"><a href="/channels/<%= channel.id %>"><%= channel.name %>
-          <span class="close-tab">close</span></a></li>
+        <% current_user.chats.each do |chat| %>
+          <% channel = chat.channel %>
+          <li id="tab-<%= channel.name %>" channel="<%= channel.name %>" class="tab"><a href="/channels/<%= channel.id %>" class="tab-link"><%= channel.name %></a>
+          <%= link_to "Close", chat_path(chat), :remote => true, :method => :delete, :class => "close-tab" %></li>
         <% end %>
       </ul>

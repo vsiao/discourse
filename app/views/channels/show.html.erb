@@ -14,28 +14,26 @@ $(function() {
     faye.subscribe("/channels/<%= channel.id %>", function(data) {
       eval(data);
     });
-    /*
-  setInterval(function() { $.ajax({
-    type: 'POST',
-    url: '/channels-user-active',
-    dataType: "json",
-    data: "channel_id=<%= channel.id %>",
-    success: function(response) {
-      $("#<%= channel.name %> .member-list").empty();
-      console.log(response.users);
-      var users = response.users.sort(sortName);
-      console.log(users);
-      $.each(response.users, function(index, value) {
-        $("#<%= channel.name %> .member-list").append(
-          '<li><img src="http://graph.facebook.com/'
-          +value.user.uid+
-          '/picture" />'
-          +value.user.name+'</li>'
-        );
-      });
-    }
-  });}, 1000);
-  */
+    setInterval(function() { $.ajax({
+      type: 'POST',
+      url: '/channels-user-active',
+      dataType: "json",
+      data: "channel_id=<%= channel.id %>",
+      success: function(response) {
+        $("#<%= channel.name %> .member-list").empty();
+        console.log(response.users);
+        var users = response.users.sort(sortName);
+        console.log(users);
+        $.each(response.users, function(index, value) {
+          $("#<%= channel.name %> .member-list").append(
+            '<li><img src="http://graph.facebook.com/'
+            +value.user.uid+
+            '/picture" />'
+            +value.user.name+'</li>'
+          );
+        });
+      }
+    });}, 1000);
   <% end %>
   
   
@@ -45,27 +43,15 @@ $(function() {
 });
 
 $(".close-tab").live('click', function(event) {
-  event.preventDefault();
   event.stopPropagation();
-  channel = $(this).parent().parent().attr("channel");
-  alert(channel);
-  $.ajax({
-    type: 'POST',
-    url: '/channels-user-inactive',
-    dataType: "json",
-    data: "channel_name="+channel,
-    success: function(response) {
-      $("#tabs").html("<%= escape_javascript(render 'partials/tabs')%>");
-    }
-  });
 });
 
 $(".tab").live('click', function(event) {
   $(".tab").removeClass("active");
   $(this).addClass("active");
   event.preventDefault();
-  $(".chat-channel").hide();
-  $("#" + $(this).attr('channel')).show();
+  $(".chat-channel").fadeOut(250);
+  $("#" + $(this).attr('channel')).fadeIn(250);
 });
 </script>
 <div class="container">

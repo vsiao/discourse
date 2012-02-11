@@ -2,6 +2,7 @@ Chatter::Application.routes.draw do
 
   resources :channels
   resources :messages
+  resources :chats
   root :to => 'static#home'
   
   ##################### Omniauth ########################
