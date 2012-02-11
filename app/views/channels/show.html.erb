@@ -14,6 +14,7 @@ $(function() {
     faye.subscribe("/channels/<%= channel.id %>", function(data) {
       eval(data);
     });
+    /*
   setInterval(function() { $.ajax({
     type: 'POST',
     url: '/channels-user-active',
@@ -34,6 +35,7 @@ $(function() {
       });
     }
   });}, 1000);
+  */
   <% end %>
   
   
