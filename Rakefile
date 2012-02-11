@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Discourse::Application.load_tasks
+Chatter::Application.load_tasks
