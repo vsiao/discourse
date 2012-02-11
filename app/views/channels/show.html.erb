@@ -44,21 +44,17 @@ $(".tab").click(function(event) {
 <% current_user.channels.each do |channel| %>
   <div id="<%= channel.name %>" class="chat-channel">
     <div class="chat-sidebar">
-    <div class="chat-info">
-    
-      <p class="notice"><%= notice %></p>
-      <h2><%= channel.name %></h2>
-      <span class="school"><%= channel.school.name %></span>
-    
+      <div class="chat-info">
+        <h2><%= channel.name %></h2>
+        <span class="school"><%= channel.school.name %></span>
+        <p class="description"><%= channel.description %></p> 
+      </div>
+      <div class="chat-members">
+        Participants:
+        <ul class="member-list">
+        </ul>
+      </div>
     </div>
-    <div class="chat-members">
-      Participants:
-      <ul class="member-list">
-    
-      </ul>
-    </div>
-    </div>
-    
     <div class="chat-window">
       <ul class="chat" id="chat-<%= channel.id %>">
     

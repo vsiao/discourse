@@ -72,9 +72,10 @@ a {
  ***********************************
  */
 #channels-list {
-  width:100%;
+  width:720px;
+  float:right;
   text-align:center;
-  margin-top:20px;
+  margin-top:25px;
 }
 #channels-list tr {
   border-bottom:1px solid #ddd;
