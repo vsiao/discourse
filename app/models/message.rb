@@ -7,7 +7,7 @@ class Message < ActiveRecord::Base
       if (i % 2) == 0
         latex += x
       else
-        latex += '<img src="http://latex.codecogs.com/svg.latex?' + x.gsub(/ /,'%20') + '" />'
+        latex += '<img class="latex" src="http://latex.codecogs.com/svg.latex?' + x.gsub(/ /,'%20') + '" />'
       end
     end
     

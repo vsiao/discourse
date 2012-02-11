@@ -6,11 +6,11 @@
   <p>
   
     <% if /\$.*\$/.match(message.content) %>
-      <div><%= Message.convert_to_latex(message.content).html_safe %></div>
+      <%= Message.convert_to_latex(message.content).html_safe %>
     <% elsif /\Ahttp.*(jpeg|jpg|gif|png)\Z/.match(message.content) %>
       <a href="<%= message.content %>" "target=_blank"><img class="embedded" src='<%= message.content %>' /></a>
     <% else %>
-      <div><%= message.content %></div>
+      <%= message.content %>
     <% end %>
   </p>
 
