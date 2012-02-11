@@ -43,27 +43,15 @@ $(function() {
 });
 
 $(".close-tab").live('click', function(event) {
-  event.preventDefault();
   event.stopPropagation();
-  channel = $(this).parent().parent().attr("channel");
-  alert(channel);
-  $.ajax({
-    type: 'POST',
-    url: '/channels-user-inactive',
-    dataType: "json",
-    data: "channel_name="+channel,
-    success: function(response) {
-      $("#tabs").html("<%= escape_javascript(render 'partials/tabs')%>");
-    }
-  });
 });
 
 $(".tab").live('click', function(event) {
   $(".tab").removeClass("active");
   $(this).addClass("active");
   event.preventDefault();
-  $(".chat-channel").hide();
-  $("#" + $(this).attr('channel')).show();
+  $(".chat-channel").fadeOut(250);
+  $("#" + $(this).attr('channel')).fadeIn(250);
 });
 </script>
 <div class="container">

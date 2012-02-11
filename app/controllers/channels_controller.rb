@@ -104,7 +104,7 @@ class ChannelsController < ApplicationController
     if c
       c.touch
     else
-      Chat.create(:user_id => current_user.id, :channel_id => channel_id)
+      # Chat.create(:user_id => current_user.id, :channel_id => channel_id)
     end
     channel = Channel.find(channel_id)
     channel.check_active_users
