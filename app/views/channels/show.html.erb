@@ -10,16 +10,9 @@ $(function() {
 <div id="chat-info">
 
   <p id="notice"><%= notice %></p>
-  <p>
-    <b>Name:</b>
-    <%= @channel.name %>
-  </p>
-  <p>
-    <b>School:</b>
-    <%= @channel.school_id %>
-  </p>
-  <%= link_to 'Edit', edit_channel_path(@channel) %> |
-  <%= link_to 'Back', channels_path %>
+  <h2><%= @channel.name %></h2>
+  <span id="school"><%= @channel.school_id %></span>
+  <%= link_to 'Edit', edit_channel_path(@channel) %>
 
 </div>
 <div id="chat-members">

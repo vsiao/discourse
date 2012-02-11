@@ -14,7 +14,7 @@ a img {
   border: none;
 }
 a {
-  color: #0000FF;
+  color: #1874CD;
   text-decoration:none;
 }
 .clear {
@@ -89,31 +89,33 @@ a {
 ul#chat {
   list-style: none;
   width: 100%;
-  padding:0 0 80px;
+  padding:0 0 82px;
 }
 ul#chat li {
-  padding:8px 12px 8px 70px;
+  position:relative;
+  margin:8px 10px 8px;
+  padding:10px 0 0 65px;
   min-height:50px;
+  border-top:1px solid #ddd;
 }
 ul#chat img {
   position:absolute;
-  left:10px;
+  left:5px;
 }
 ul#chat li .name {
   position:relative;
   top:-3px;
-  font-size:10px;
-  color:#1fbbbd;
+  font-size:11px;
+  color:#1874CD;
 }
 ul#chat li p {
   /* message content */
 }
 ul#chat li .created_at {
-  float: right;
+  position:absolute;
+  top:5px; right:10px;
   color: #777;
   font-size: 11px;
-  padding-left: 4px;
-  padding-top: 2px;
 }
 #chat-input {
   position:fixed; bottom:0;
