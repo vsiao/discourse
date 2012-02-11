@@ -169,6 +169,12 @@ ul.chat img {
   position:absolute;
   left:10px;
 }
+ul.chat img.latex {
+  position:relative;
+  display:block;
+  margin:5px 0;
+  left:0;
+}
 ul.chat li .name {
   position:relative;
   top:-3px;
