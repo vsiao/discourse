@@ -1,14 +1,12 @@
 <script>
 
-var initialChannel = "<%= current_user.channels.first ? current_user.channels.first.name : "" %>";
-
 $(function() {
+  var initialChannel = "<%= @channel.name %>";
   var faye = new Faye.Client('http://128.237.116.88:9292/faye');
   <% current_user.channels.each do |channel| %>
     faye.subscribe("/channels/<%= channel.id %>", function(data) {
       eval(data);
     });
-  
   setInterval(function() { $.ajax({
     type: 'POST',
     url: '/channels-user-active',
@@ -34,7 +32,9 @@ $(function() {
   $("#tab-" + initialChannel).addClass('active');
 });
 
-$(".close-tab").click(function() {
+$(".close-tab").live('click', function(event) {
+  event.preventDefault();
+  event.stopPropagation();
   channel = $(this).parent().parent().attr("channel");
   alert(channel);
   $.ajax({
@@ -42,12 +42,13 @@ $(".close-tab").click(function() {
     url: '/channels-user-inactive',
     dataType: "json",
     data: "channel_name="+channel,
+    success: function(response) {
+      $("#tabs").html("<%= escape_javascript(render 'partials/tabs')%>");
+    }
   });
-  
-  $("#tabs").html("<%= escape_javascript(render 'partials/tabs')%>");
 });
 
-$(".tab").click(function(event) {
+$(".tab").live('click', function(event) {
   $(".tab").removeClass("active");
   $(this).addClass("active");
   event.preventDefault();

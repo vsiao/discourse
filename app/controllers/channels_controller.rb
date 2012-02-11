@@ -14,6 +14,10 @@ class ChannelsController < ApplicationController
   # GET /channels/1.xml
   def show
     @channel = Channel.find(params[:id])
+    c = Chat.find_by_user_id_and_channel_id(current_user.id, @channel.id)
+    if !c
+      Chat.create(:user_id => current_user.id, :channel_id => @channel.id)
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,7 +92,7 @@ class ChannelsController < ApplicationController
     c = Chat.find_by_user_id_and_channel_id(current_user.id, Channel.find_by_name(channel_name).id);
     puts c
     if c
-      c.destroy
+      c.delete
     end
     
     render :json => { }
