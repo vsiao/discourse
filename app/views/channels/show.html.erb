@@ -6,9 +6,14 @@ userActive = function() { $.ajax({
     dataType: "json",
     data: "channel_id=<%= @channel.id %>",
     success: function(response) {
-      $("#chat-members").empty();
+      $("#member-list").empty();
       $.each(response.users, function(index, value) {
-        $("#chat-members").append("<div>" + value.user.name + "</div>");
+        $("#member-list").append(
+          '<li><img src="http://graph.facebook.com/'
+          +value.user.uid+
+          '/picture" />'
+          +value.user.name+'</li>'
+        );
       });
     }
   });
@@ -26,6 +31,7 @@ $(function() {
 });
 </script>
 <div class="container">
+<div id="chat-sidebar">
 <div id="chat-info">
 
   <p id="notice"><%= notice %></p>
@@ -34,7 +40,13 @@ $(function() {
   <%= link_to 'Edit', edit_channel_path(@channel) %>
 
 </div>
+<div id="chat-members">
+  Participants:
+  <ul id="member-list">
 
+  </ul>
+</div>
+</div>
 
 <div id="chat-window">
   <ul id="chat">
@@ -47,11 +59,5 @@ $(function() {
     <!--<%= f.submit "Send" %>-->
   <% end %>
   </div>
-</div>
-<br /><br /><br /><br />
-Members:
-<br />
-<div id="chat-members">
-
 </div>
 </div>

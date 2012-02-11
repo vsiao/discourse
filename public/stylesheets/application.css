@@ -71,11 +71,17 @@ a {
  * ChatBox Styles
  ***********************************
  */
-#chat-info {
+#chat-sidebar {
   position:fixed;
+  width:240px;
 }
-#chat-members {
-  position:fixed;
+#member-list li {
+  margin-top:5px;
+}
+#member-list img {
+  width:30px; height:30px;
+  vertical-align:middle;
+  margin-right:10px;
 }
 #chat-window {
   top:0;
