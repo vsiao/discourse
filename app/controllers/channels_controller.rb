@@ -79,7 +79,20 @@ class ChannelsController < ApplicationController
       format.html { redirect_to(channels_url) }
       format.xml  { head :ok }
     end
-  end  
+  end
+  
+  def user_inactive
+    channel_name = params[:channel_name]
+    puts "inactive!!!"
+    puts channel_name
+    c = Chat.find_by_user_id_and_channel_id(current_user.id, Channel.find_by_name(channel_name).id);
+    puts c
+    if c
+      c.destroy
+    end
+    
+    render :json => { }
+  end
   
   def user_active
     channel_id = params[:channel_id]

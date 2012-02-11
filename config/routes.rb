@@ -10,5 +10,6 @@ Chatter::Application.routes.draw do
   #######################################################
   
   match "/channels-user-active" => "channels#user_active"
+  match "/channels-user-inactive" => "channels#user_inactive"
 
 end

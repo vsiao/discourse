@@ -9,7 +9,6 @@ $(function() {
       eval(data);
     });
   
-  
   setInterval(function() { $.ajax({
     type: 'POST',
     url: '/channels-user-active',
@@ -33,6 +32,19 @@ $(function() {
   $(".chat-channel").hide();
   $("#" + initialChannel).show();
   $("#tab-" + initialChannel).addClass('active');
+});
+
+$(".close-tab").click(function() {
+  channel = $(this).parent().parent().attr("channel");
+  alert(channel);
+  $.ajax({
+    type: 'POST',
+    url: '/channels-user-inactive',
+    dataType: "json",
+    data: "channel_name="+channel,
+  });
+  
+  $("#tabs").html("<%= escape_javascript(render 'partials/tabs')%>");
 });
 
 $(".tab").click(function(event) {
