@@ -1,12 +1,10 @@
 <script>
-
 function sortName(a,b){  
   if (a.user.name == b.user.name){
    return 0;
   }
   return a.user.name > b.user.name ? 1 : -1;  
 }; 
-
 $(function() {
   var initialChannel = "<%= @channel.name %>";
   var faye = new Faye.Client('http://128.237.116.88:9292/faye');
@@ -53,32 +51,5 @@ $(".tab").live('click', function(event) {
 });
 </script>
 <div class="container">
-<% current_user.channels.each do |channel| %>
-  <div id="<%= channel.name %>" class="chat-channel">
-    <div class="chat-sidebar">
-      <div class="chat-info">
-        <h2><%= channel.name %></h2>
-        <span class="school"><%= channel.school.name %></span>
-        <p class="description"><%= channel.description %></p> 
-      </div>
-      <div class="chat-members">
-        <span class="members-header">Who's here?</span>
-        <ul class="member-list">
-        </ul>
-      </div>
-    </div>
-    <div class="chat-window">
-      <ul class="chat" id="chat-<%= channel.id %>">
-    
-      </ul>
-      <div class="chat-input">
-      <%= form_for Message.new, :html => { :id => 'new_message_' + channel.id.to_s },  :remote => true do |f| %>
-        <%= f.hidden_field :chan_id, :id => 'message_channel_id_' + channel.id.to_s, :value => channel.id %>
-        <%= f.text_field :content, :id => 'message_content_' + channel.id.to_s, :class => 'message_content', :autocomplete => "off" %>
-        <!--<%= f.submit "Send" %>-->
-      <% end %>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render :partial => "channel", :collection => current_user.channels %>
 </div>

@@ -1,31 +1,43 @@
+<script>
+$(function() {
+  <% current_user.channels.each do |channel| %>
+    setInterval(function() { $.ajax({
+      type: 'POST',
+      url: '/channels-user-active',
+      dataType: "json",
+      data: "channel_id=<%= channel.id %>",
+      success: function(response) { }
+    });}, 3000);
+  <% end %>
+});
+</script>
 <div class="container">
-<div id="welcome-msg">
-<h2>Welcome to discourse!</h2>
-<img src="/images/tartanhacks.png" style="float:left;margin:30px" />
-<p>Join a channel below, or create a 
-<%= link_to 'new channel', new_channel_path %> 
-to start chatting.<br /> You are currently browsing the
-Carnegie Mellon University network. </p>
+<div id="channels-index">
+  <div id="welcome-msg">
+  <h2>Welcome to discourse!</h2>
+  <img src="/images/tartanhacks.png" style="float:left;margin:30px" />
+  <p>Join a channel below, or create a 
+  <%= link_to 'new channel', new_channel_path %> 
+  to start chatting.<br /> You are currently browsing the
+  Carnegie Mellon University network. </p>
+  </div>
+  <table id="channels-list">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <!--<th></th>
+      <th></th>-->
+    </tr>
+  <% @channels.each do |channel| %>
+    <tr>
+      <td><%= channel.name %></td>
+      <td><%= channel.description %></td>
+      <td><%= link_to 'Join', "/chats/"+channel.id.to_s, :method => :put %></td>
+      <!--<td><%= link_to 'Edit', edit_channel_path(channel) %></td>-->
+      <!--<td><%= link_to 'Destroy', channel, :confirm => 'Are you sure?', :method => :delete %></td>-->
+    </tr>
+  <% end %>
+  </table>
 </div>
-<table id="channels-list">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <!--<th></th>
-    <th></th>-->
-  </tr>
-<% @channels.each do |channel| %>
-  <tr>
-    <td><%= channel.name %></td>
-    <td><%= channel.description %></td>
-    <td><%= link_to 'Join', "/chats/"+channel.id.to_s, :method => :put %></td>
-    <!--<td><%= link_to 'Edit', edit_channel_path(channel) %></td>-->
-    <!--<td><%= link_to 'Destroy', channel, :confirm => 'Are you sure?', :method => :delete %></td>-->
-  </tr>
-<% end %>
-</table>
-
-<br />
-
 </div>
