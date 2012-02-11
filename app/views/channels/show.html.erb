@@ -1,5 +1,7 @@
 <script>
 
+var initialChannel = "<%= current_user.channels.first ? current_user.channels.first.name : "" %>";
+
 userActive = function() { $.ajax({
     type: 'POST',
     url: '/channels-user-active',
@@ -21,43 +23,54 @@ userActive = function() { $.ajax({
 
 $(function() {
   var faye = new Faye.Client('http://128.237.116.88:9292/faye');
-  faye.subscribe("/channels/<%= @channel.name %>", function(data) {
-    eval(data);
-  });
+  <% current_user.channels.each do |channel| %>
+    faye.subscribe("/channels/<%= channel.id %>", function(data) {
+      eval(data);
+    });
+  <% end %>
   
   setInterval(userActive, 1000);
+  $(".chat-channel").hide();
+  $("#" + initialChannel).show();
+});
 
-  
+$(".tab").click(function(event) {
+  event.preventDefault();
+  $(".chat-channel").hide();
+  $("#" + $(this).attr('channel')).show();
 });
 </script>
 <div class="container">
-<div id="chat-sidebar">
-<div id="chat-info">
-
-  <p id="notice"><%= notice %></p>
-  <h2><%= @channel.name %></h2>
-  <span id="school"><%= @channel.school_id %></span>
-  <%= link_to 'Edit', edit_channel_path(@channel) %>
-
-</div>
-<div id="chat-members">
-  Participants:
-  <ul id="member-list">
-
-  </ul>
-</div>
-</div>
-
-<div id="chat-window">
-  <ul id="chat">
-
-  </ul>
-  <div id="chat-input">
-  <%= form_for Message.new, :remote => true do |f| %>
-    <%= f.hidden_field :channel_name, :value => @channel.name %>
-    <%= f.text_field :content, :autocomplete => "off" %>
-    <!--<%= f.submit "Send" %>-->
-  <% end %>
+<% current_user.channels.each do |channel| %>
+  <div id="<%= channel.name %>" class="chat-channel">
+    <div class="chat-sidebar">
+    <div class="chat-info">
+    
+      <p class="notice"><%= notice %></p>
+      <h2><%= channel.name %></h2>
+      <span class="school"><%= channel.school_id %></span>
+    
+    </div>
+    <div class="chat-members">
+      Participants:
+      <ul class="member-list">
+    
+      </ul>
+    </div>
+    </div>
+    
+    <div class="chat-window">
+      <ul class="chat" id="chat-<%= channel.id %>">
+    
+      </ul>
+      <div class="chat-input">
+      <%= form_for Message.new, :html => { :id => 'new_message_' + channel.id.to_s },  :remote => true do |f| %>
+        <%= f.hidden_field :chan_id, :id => 'message_channel_id_' + channel.id.to_s, :value => channel.id %>
+        <%= f.text_field :content, :id => 'message_content_' + channel.id.to_s, :class => 'message_content', :autocomplete => "off" %>
+        <!--<%= f.submit "Send" %>-->
+      <% end %>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
 </div>
