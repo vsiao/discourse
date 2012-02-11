@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.integer :uid
       t.integer :school_id
+      t.integer :authentication_id
 
       t.timestamps
     end

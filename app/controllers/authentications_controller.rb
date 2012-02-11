@@ -35,6 +35,7 @@ class AuthenticationsController < ApplicationController
       redirect_to '/channels'
     else
       user = User.new
+      user.save
       user.apply_omniauth(omniauth)
       user.save
       

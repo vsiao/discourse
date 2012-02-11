@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120211065749) do
     t.string   "name"
     t.integer  "uid"
     t.integer  "school_id"
+    t.integer  "authentication_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,15 +1,16 @@
 class User < ActiveRecord::Base
+  belongs_to :authentication
   has_many :schools
   
   ############################# AUTHENTICATION ####################################
 
   def apply_omniauth(omniauth)
     self.name = omniauth['user_info']['name'] if name.blank?
-    puts "applying , with selfid = " + self.id.to_s
-    Authentication.create!(:user_id => self.id,
+    auth = Authentication.create!(:user_id => self.id,
                           :provider => omniauth['provider'], 
                           :uid => omniauth['uid'],
                           :token => (omniauth['credentials']['token'] rescue nil))
+    self.authentication_id = auth.id
     self.uid = omniauth['uid']
   end
 
