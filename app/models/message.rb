@@ -1,6 +1,9 @@
 class Message < ActiveRecord::Base
   attr_accessible :content
-  
+ 
+  validates_presence_of :content
+
+
   def self.convert_to_latex(string)
     latex = ""
     string.split("$").each_with_index do |x, i|

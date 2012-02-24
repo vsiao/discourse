@@ -7,27 +7,33 @@ function sortName(a,b){
 }; 
 
 //Updates the current users in channel once page loads
-function updateUsers() { $.ajax({
-      type: 'POST',
-      url: '/channels-user-active',
-      dataType: "json",
-      data: "channel_id=<%= @channel.id %>",
-      success: function(response) {
-        $("#<%= @channel.name %> .member-list").empty();
-        var users = response.users.sort(sortName);
-        $.each(response.users, function(index, value) {
-          $("#<%= @channel.name %> .member-list").append(
-            '<li><img src="http://graph.facebook.com/'
-            +value.user.uid+
-            '/picture" />'
-            +value.user.name+'</li>'
-          );
-        });
-      }
-    });};
-
-//updateUsers();
-
+/*$(function (){
+var initialChannel = "<%= @channel.name %>";
+<% current_user.channels.each do |channel| %>
+  function() { $.ajax({
+        type: 'POST',
+        url: '/channels-user-active',
+        dataType: "json",
+        data: "channel_id=<%= channel.id %>",
+        success: function(response) {
+          $("#<%= channel.name %> .member-list").empty();
+          var users = response.users.sort(sortName);
+          $.each(response.users, function(index, value) {
+            $("#<%= channel.name %> .member-list").append(
+              '<li><img src="http://graph.facebook.com/'
+              +value.user.uid+
+              '/picture" />'
+              +value.user.name+'</li>'
+            );
+          });
+        }
+      });};
+  <% end %>
+  $(".chat-channel").hide();
+  $("#" + initialChannel).show();
+  $("#tab-" + initialChannel).addClass('active');
+});
+*/
 
 $(function() {
   var initialChannel = "<%= @channel.name %>";
