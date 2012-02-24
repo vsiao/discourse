@@ -7,9 +7,24 @@ $(function() {
       dataType: "json",
       data: "channel_id=<%= channel.id %>",
       success: function(response) { }
-    });}, 1500);
+    });}, 6000);
   <% end %>
 });
+
+
+<% current_user.channels.each do |channel| %>
+window.onload=function() { $.ajax({
+      type: 'POST',
+      url: '/channels-user-active',
+      dataType: "json",
+      data: "channel_id=<%= channel.id %>",
+      success: function(response) { }
+    });};
+  <% end %>
+
+
+
+
 </script>
 <div class="container">
 <div id="channels-index">
